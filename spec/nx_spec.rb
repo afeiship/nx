@@ -7,6 +7,8 @@ RSpec.describe Nx do
     it "set/get with object value" do
       hash = {}
       set(hash, "a.b", 1)
+      set(hash, "a.b.c[0]", 12)
+      p hash
       expect(get(hash, "a")).to eq({ "b" => 1 })
     end
   end
