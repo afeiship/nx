@@ -9,10 +9,12 @@ module Nx
         keys << (part.include?("]") ? part.to_i : part)
       end
     end
+    
     # set by path:
-    keys[0..-2].each do |key|
-      me = me[key] = me[key] || (key.class == String ? {} : [])
+    keys[0..-2].each_with_index do |key, index|
+      me = me[key] = me[key] || (keys[index + 1].class == String ? {} : [])
     end
+
     me[keys[-1]] = value
   end
 
