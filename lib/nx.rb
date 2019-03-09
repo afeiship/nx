@@ -41,3 +41,8 @@ module Nx
     result
   end
 end
+
+# extend ruby nx
+class Hash
+  include Nx
+end
