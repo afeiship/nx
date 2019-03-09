@@ -2,7 +2,7 @@ require "templates/version"
 require "templates/hash_ext"
 
 module Nx
-  def self.set(hash, path, value)
+  def set(hash, path, value)
     key, sub_key = path.split(".", 2)
 
     if sub_key.nil?
@@ -15,7 +15,7 @@ module Nx
     end
   end
 
-  def self.get(hash, path)
+  def get(hash, path)
     result = hash
     path.split(".").each do |dot_part|
       dot_part.split("[").each do |part|
