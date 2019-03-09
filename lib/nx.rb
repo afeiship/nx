@@ -1,8 +1,8 @@
 require "templates/version"
 
 module Nx
-  def set(hash, path, value)
-    me = hash || {}
+  def set(path, value)
+    me = self || {}
     keys = []
     path.split(".").each do |dot_part|
       dot_part.split("[").each do |part|
@@ -18,8 +18,8 @@ module Nx
     me[keys[-1]] = value
   end
 
-  def get(hash, path)
-    result = hash
+  def get( path)
+    result = self
     path.split(".").each do |dot_part|
       dot_part.split("[").each do |part|
         if part.include?("]")
