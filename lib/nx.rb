@@ -1,4 +1,5 @@
 require "templates/version"
+require "templates/hash_ext"
 
 module Nx
   def self.set(hash, path, value)
