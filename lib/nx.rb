@@ -1,21 +1,22 @@
 require "templates/version"
-require "templates/hash_ext"
 
 module Nx
-  def self.set(hash, path, value)
-    key, sub_key = path.split(".", 2)
-
-    if sub_key.nil?
-      hash[key] = value
-    else
-      if hash[key].nil?
-        hash[key] = {}
+  def set(hash, path, value)
+    me = hash || {}
+    keys = []
+    path.split(".").each do |dot_part|
+      dot_part.split("[").each do |part|
+        keys << (part.include?("]") ? part.to_i : part)
       end
-      self.set(hash[key], sub_key, value)
     end
+    # set by path:
+    keys[0..-2].each do |key|
+      me = me[key] = me[key] || (key.class == String ? {} : [])
+    end
+    me[keys[-1]] = value
   end
 
-  def self.get(hash, path)
+  def get(hash, path)
     result = hash
     path.split(".").each do |dot_part|
       dot_part.split("[").each do |part|
@@ -30,7 +31,7 @@ module Nx
     result
   end
 
-  def self.mix(*args)
+  def mix(*args)
     result = {}
     args.each do |arg|
       result.merge! arg
