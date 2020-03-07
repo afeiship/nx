@@ -15,7 +15,7 @@ module Nx
       me = me[key] = me[key] || (keys[index + 1].class == String ? {} : [])
     end
 
-    me[keys[-1]] = value
+    me[keys[-1].to_sym] = value
   end
 
   def get(path)
