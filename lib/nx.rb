@@ -12,7 +12,8 @@ module Nx
 
     # set by path:
     keys[0..-2].each_with_index do |key, index|
-      me = me[key] = me[key] || (keys[index + 1].class == String ? {} : [])
+      the_key = key.to_sym
+      me = me[the_key] = me[the_key] || (keys[index + 1].class == String ? {} : [])
     end
 
     me[keys[-1].to_sym] = value
