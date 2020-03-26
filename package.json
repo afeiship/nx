@@ -9,6 +9,7 @@
   "scripts": {
     "clean": "rm -rf *.gem",
     "build": "gem build *.gemspec",
+    "test": "rspec",
     "pubpush": "gem push *.gem"
   },
   "repository": {
