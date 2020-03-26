@@ -12,11 +12,14 @@ module Nx
 
     # set by path:
     keys[0..-2].each_with_index do |key, index|
-      the_key = key.to_sym
+      the_key = key
+      the_key = yeild(the_key) if block_given?
       me = me[the_key] = me[the_key] || (keys[index + 1].class == String ? {} : [])
     end
 
-    me[keys[-1].to_sym] = value
+    the_key = keys[-1]
+    the_key = yeild(the_key) if block_given?
+    me[the_key] = value
   end
 
   def get(path)
