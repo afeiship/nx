@@ -14,3 +14,7 @@ func Log(args ...interface{}) {
 func Hi() {
   fmt.Printf("Hello go cli")
 }
+
+func Hello() {
+  fmt.Printf("hello world\n")
+}
