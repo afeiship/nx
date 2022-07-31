@@ -13,7 +13,7 @@ func Log(args ...interface{}) {
 }
 
 func Hello() {
-	fmt.Printf("hello world\n")
+	fmt.Println("hello world")
 }
 
 func TypeOf(target interface{}) interface{} {
