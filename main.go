@@ -16,6 +16,6 @@ func Hello() {
 	fmt.Println("hello world")
 }
 
-func TypeOf(target interface{}) interface{} {
+func TypeOf(target interface{}) reflect.Kind {
 	return reflect.ValueOf(target).Kind()
 }
