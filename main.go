@@ -1,8 +1,9 @@
 package nx
 
-import "fmt"
-
-var VERSION = "0.0.1"
+import (
+	"fmt"
+	"reflect"
+)
 
 func Log(args ...interface{}) {
 	for _, param := range args {
@@ -13,4 +14,8 @@ func Log(args ...interface{}) {
 
 func Hello() {
 	fmt.Printf("hello world\n")
+}
+
+func TypeOf(target interface{}) interface{} {
+	return reflect.ValueOf(target).Kind()
 }
