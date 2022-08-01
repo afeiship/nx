@@ -1,21 +1,21 @@
 package nx
 
 import (
-	"fmt"
-	"reflect"
+  "fmt"
+  "reflect"
 )
 
 func Log(args ...interface{}) {
-	for _, param := range args {
-		fmt.Printf("%+v ", param)
-	}
-	fmt.Println("")
+  for _, param := range args {
+    fmt.Printf("%+v ", param)
+  }
+  fmt.Println("")
 }
 
 func Hello() {
-	fmt.Println("hello world")
+  fmt.Println("hello world")
 }
 
-func TypeOf(target interface{}) reflect.Kind {
-	return reflect.ValueOf(target).Kind()
+func TypeOf(target any) reflect.Kind {
+  return reflect.TypeOf(target).Kind()
 }
