@@ -19,3 +19,11 @@ func TypeOf(target any) reflect.Kind {
 func Getenv(name string) string {
 	return os.Getenv(name)
 }
+
+func Get(target, key string) any {
+	return reflect.ValueOf(target).FieldByName(key).Interface()
+}
+
+func Set(target, key string, value any) {
+	reflect.ValueOf(target).FieldByName(key).Set(reflect.ValueOf(value))
+}
