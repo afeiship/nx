@@ -27,3 +27,10 @@ func Get(target, key string) any {
 func Set(target, key string, value any) {
 	reflect.ValueOf(target).FieldByName(key).Set(reflect.ValueOf(value))
 }
+
+func If(cond bool, a, b any) any {
+	if cond {
+		return a
+	}
+	return b
+}
