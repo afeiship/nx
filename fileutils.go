@@ -21,17 +21,10 @@ func WriteFile(fileName string, data []byte) error {
 }
 
 func ReadFile(fileName string) ([]byte, error) {
-	f, err := os.Open(fileName)
+	data, err := os.ReadFile(fileName)
 	if err != nil {
 		return nil, err
 	}
-	defer f.Close()
-
-	data, err := ioutil.ReadAll(f)
-	if err != nil {
-		return nil, err
-	}
-
 	return data, nil
 }
 
