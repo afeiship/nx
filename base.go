@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"reflect"
+	"strconv"
 )
 
 func Hi() {
@@ -33,4 +34,13 @@ func If(cond bool, a, b any) any {
 		return a
 	}
 	return b
+}
+
+func ToString(target any) string {
+	return fmt.Sprintf("%v", target)
+}
+
+func ToInt(target string) int64 {
+	res, _ := strconv.ParseInt(target, 10, 32)
+	return res
 }
