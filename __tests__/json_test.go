@@ -21,7 +21,15 @@ func TestJSON(t *testing.T) {
 		t.Errorf("json parse failed")
 	}
 
-	fmt.Println(person)
+	fmt.Println("version: ",nx.Version, data, res)
+
+	// var res2 = nx.JsonStringify(person)
+	// // bytes to string
+	// res2Str := string(res2)
+	// if res2Str != `{"name":"afei","age":18}` {
+	// 	t.Errorf("json stringify failed")
+	// }
+	// fmt.Println(res2Str)
 
 	// test json stringify
 	// var res2 = nx.JsonStringify(person)

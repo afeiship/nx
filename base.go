@@ -6,6 +6,8 @@ import (
 	"reflect"
 	"strconv"
 )
+// Give a version
+const Version = "1.0.0"
 
 func Hi() {
 	fmt.Println("hello world")
