@@ -1,7 +1,7 @@
 {
   "name": "nx",
   "version": "1.0.0",
-  "description": "> Next toolkit for go.",
+  "description": "Next toolkit for go.",
   "main": "index.js",
   "scripts": {
     "test": "go test __tests__/*.go -v"
