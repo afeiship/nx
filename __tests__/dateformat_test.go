@@ -2,7 +2,7 @@ package nx
 
 import (
 	"fmt"
-	"github.com/afeiship/nx"
+	"github.com/afeiship/nx/lib"
 	"testing"
 	"time"
 )

@@ -1,7 +1,7 @@
 package nx
 
 import (
-	"github.com/afeiship/nx"
+	"github.com/afeiship/nx/lib"
 	"reflect"
 	"testing"
 )

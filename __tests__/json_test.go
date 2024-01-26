@@ -1,7 +1,7 @@
 package nx
 
 import (
-	"github.com/afeiship/nx"
+	"github.com/afeiship/nx/lib"
 	"testing"
 	"fmt"
 )
@@ -24,6 +24,7 @@ func TestJSON(t *testing.T) {
 	fmt.Println("version: ",nx.Version, data, res)
 
 	// var res2 = nx.JsonStringify(person)
+	// fmt.Println("res2: ",res2)
 	// // bytes to string
 	// res2Str := string(res2)
 	// if res2Str != `{"name":"afei","age":18}` {
