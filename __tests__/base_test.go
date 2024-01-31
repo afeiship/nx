@@ -1,6 +1,7 @@
 package nx
 
 import (
+	"fmt"
 	"github.com/afeiship/nx/lib"
 	"reflect"
 	"testing"
@@ -96,4 +97,16 @@ func TestToInt(t *testing.T) {
 	if nx.ToInt(v3) != 0 {
 		t.Errorf("to int error")
 	}
+}
+
+// only
+func TestTmpl(t *testing.T) {
+	t1 := "hello {{.Name}}"
+	data := map[string]string{"Name": "world"}
+	res := nx.Tmpl(t1, data)
+	// test res equal
+	if res != "hello world" {
+		t.Errorf("tmpl error, got: %s", res)
+	}
+	fmt.Println("tmpl test done:", res)
 }

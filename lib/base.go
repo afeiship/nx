@@ -1,11 +1,14 @@
 package nx
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"reflect"
 	"strconv"
+	"text/template"
 )
+
 // Give a version
 const Version = "1.0.0"
 
@@ -45,4 +48,19 @@ func ToString(target any) string {
 func ToInt(target string) int64 {
 	res, _ := strconv.ParseInt(target, 10, 32)
 	return res
+}
+
+func Tmpl(tmplString string, data any) string {
+	tmpl, err := template.New("_").Parse(tmplString)
+	buffer := bytes.NewBufferString("")
+
+	if err != nil {
+		fmt.Println("Error parsing template:", err)
+	}
+
+	err = tmpl.Execute(buffer, data)
+	if err != nil {
+		fmt.Println("Error applying template:", err)
+	}
+	return buffer.String()
 }
