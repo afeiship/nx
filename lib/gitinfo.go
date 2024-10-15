@@ -2,7 +2,7 @@
  * @Author: aric 1290657123@qq.com
  * @Date: 2024-10-15 21:05:50
  * @LastEditors: aric 1290657123@qq.com
- * @LastEditTime: 2024-10-15 21:40:17
+ * @LastEditTime: 2024-10-15 21:58:34
  */
 package nx
 
@@ -12,15 +12,15 @@ import (
 )
 
 type GitInfoRepo struct {
-	currentBranch string
-	hash          string
-	shortHash     string
-	email         string
-	name          string
-	owner         string
-	repo          string
-	sshUrl        string
-	httpsUrl      string
+	CurrentBranch string
+	Hash          string
+	ShortHash     string
+	Email         string
+	Name          string
+	Owner         string
+	Repo          string
+	SshUrl        string
+	HttpsUrl      string
 }
 
 func GitInfo() GitInfoRepo {
@@ -35,15 +35,15 @@ func GitInfo() GitInfoRepo {
 	httpsUrl = strings.Replace(httpsUrl, ".git", "", 1)
 
 	return GitInfoRepo{
-		currentBranch: currentBranch,
-		hash:          hash,
-		shortHash:     shortHash,
-		email:         email,
-		name:          name,
-		sshUrl:        url,
-		owner:         owner,
-		repo:          repo,
-		httpsUrl:      httpsUrl,
+		CurrentBranch: strings.TrimSpace(currentBranch),
+		Hash:          strings.TrimSpace(hash),
+		ShortHash:     strings.TrimSpace(shortHash),
+		Email:         strings.TrimSpace(email),
+		Name:          strings.TrimSpace(name),
+		Owner:         owner,
+		Repo:          repo,
+		SshUrl:        url,
+		HttpsUrl:      httpsUrl,
 	}
 }
 
