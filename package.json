@@ -10,9 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/afeiship/nx.git"
   },
-  "keywords": [],
   "author": "afeiship",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/afeiship/nx/issues"
   },
