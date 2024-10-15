@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/afeiship/nx/issues"
   },
-  "homepage": "https://github.com/afeiship/nx#readme"
+  "homepage": "https://github.com/afeiship/nx#readme",
+  "keywords": [
+    "nx",
+    "next",
+    "core",
+    "get",
+    "set",
+    "mix",
+    "go"
+  ]
 }
