@@ -8,11 +8,13 @@ package nx
 
 import (
 	"fmt"
-	nx "github.com/afeiship/nx/lib"
 	"testing"
+
+	nx "github.com/afeiship/nx/lib"
 )
 
 func TestGitInfo(f *testing.T) {
 	info := nx.GitInfo()
 	fmt.Println(info.CurrentBranch)
+	fmt.Println(info.Version)
 }

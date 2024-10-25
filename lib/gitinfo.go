@@ -21,6 +21,7 @@ type GitInfoRepo struct {
 	Repo          string
 	SshUrl        string
 	HttpsUrl      string
+	LatestVersion string
 }
 
 func GitInfo() GitInfoRepo {
@@ -33,6 +34,8 @@ func GitInfo() GitInfoRepo {
 	owner, repo := parseGitUrl(url)
 	httpsUrl := strings.Replace(url, "git@", "https://", 1)
 	httpsUrl = strings.Replace(httpsUrl, ".git", "", 1)
+	latestTag, _ := RunShell("git describe --tags --abbrev=0")
+	latestVersion := strings.TrimSpace(latestTag)
 
 	return GitInfoRepo{
 		CurrentBranch: strings.TrimSpace(currentBranch),
@@ -44,6 +47,7 @@ func GitInfo() GitInfoRepo {
 		Repo:          repo,
 		SshUrl:        url,
 		HttpsUrl:      httpsUrl,
+		LatestVersion: latestVersion,
 	}
 }
 
