@@ -16,5 +16,5 @@ import (
 func TestGitInfo(f *testing.T) {
 	info := nx.GitInfo()
 	fmt.Println(info.CurrentBranch)
-	fmt.Println(info.Version)
+	fmt.Println(info.LatestVersion)
 }
