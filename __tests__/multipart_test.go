@@ -43,5 +43,4 @@ func TestCreateMultipartRequestBody(t *testing.T) {
 
 	fmt.Println(requestBody.Body)
 	fmt.Println(requestBody.ContentType)
-
 }
