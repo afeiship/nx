@@ -36,7 +36,7 @@ func TestCreateMultipartRequestBody(t *testing.T) {
 	}
 
 	// create multipart request body
-	requestBody, err := nx.CreateMultipartRequestBody(opts)
+	requestBody, err := nx.CreateMultipartRequestBody(&opts)
 	if err != nil {
 		t.Error(err)
 	}

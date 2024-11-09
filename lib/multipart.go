@@ -22,7 +22,7 @@ type MultipartRequest struct {
 }
 
 // 使用 Options 结构体创建 multipart 请求体
-func CreateMultipartRequestBody(options MultipartOptions) (*MultipartRequest, error) {
+func CreateMultipartRequestBody(options *MultipartOptions) (*MultipartRequest, error) {
 	var requestBody bytes.Buffer
 	writer := multipart.NewWriter(&requestBody)
 
