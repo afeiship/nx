@@ -8,8 +8,7 @@ import (
 )
 
 // 定义 Options 结构体，包含所有可配置的参数
-type Options struct {
-	URL           string
+type MultipartOptions struct {
 	FieldName     string            // 文件字段名，定义在请求体中的名称
 	FileFieldName string            // 请求中的文件字段名
 	FileReader    io.Reader         // 文件内容，来自任何 io.Reader
@@ -23,7 +22,7 @@ type MultipartRequest struct {
 }
 
 // 使用 Options 结构体创建 multipart 请求体
-func CreateMultipartRequestBody(options Options) (*MultipartRequest, error) {
+func CreateMultipartRequestBody(options MultipartOptions) (*MultipartRequest, error) {
 	var requestBody bytes.Buffer
 	writer := multipart.NewWriter(&requestBody)
 
