@@ -25,16 +25,16 @@ type GitInfoRepo struct {
 }
 
 func GitInfo() GitInfoRepo {
-	currentBranch, _ := RunShell("git rev-parse --abbrev-ref HEAD")
-	hash, _ := RunShell("git rev-parse --verify HEAD")
-	shortHash, _ := RunShell("git rev-parse --short HEAD")
-	email, _ := RunShell("git config user.email")
-	name, _ := RunShell("git config user.name")
-	url, _ := RunShell("git config --get remote.origin.url")
+	currentBranch, _ := RunShell(&ShellOptions{Command: "git rev-parse --abbrev-ref HEAD"})
+	hash, _ := RunShell(&ShellOptions{Command: "git rev-parse --verify HEAD"})
+	shortHash, _ := RunShell(&ShellOptions{Command: "git rev-parse --short HEAD"})
+	email, _ := RunShell(&ShellOptions{Command: "git config user.email"})
+	name, _ := RunShell(&ShellOptions{Command: "git config user.name"})
+	url, _ := RunShell(&ShellOptions{Command: "git config --get remote.origin.url"})
 	owner, repo := parseGitUrl(url)
 	httpsUrl := strings.Replace(url, "git@", "https://", 1)
 	httpsUrl = strings.Replace(httpsUrl, ".git", "", 1)
-	latestTag, _ := RunShell("git describe --tags --abbrev=0")
+	latestTag, _ := RunShell(&ShellOptions{Command: "git describe --tags --abbrev=0"})
 	latestVersion := strings.TrimSpace(latestTag)
 
 	return GitInfoRepo{

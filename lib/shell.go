@@ -7,13 +7,22 @@ import (
 )
 
 type ShellOptions struct {
+	Command string
 	Verbose bool
 	DryRun  bool
 }
 
-func RunShell(command string, options *ShellOptions) (string, error) {
+func RunShell(options *ShellOptions) (string, error) {
 	log.SetPrefix("nx.shell: ")
 
+	if options == nil {
+		options = &ShellOptions{
+			DryRun:  false,
+			Verbose: false,
+		}
+	}
+
+	command := options.Command
 	cmdArgs, err := shlex.Split(command)
 	if err != nil {
 		return "", err
