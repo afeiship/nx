@@ -10,7 +10,7 @@
   "hooks": {
     "before:init": ["git fetch --tags"],
     "after:init": ["npm run test", "t2k"],
-    "after:release": ["gh release create ${version} --generate-notes"]
+    "after:release": ["gh release create v${version} --generate-notes"]
   },
   "github": {
     "release": false,
