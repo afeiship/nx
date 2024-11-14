@@ -4,7 +4,8 @@
   "description": "Next toolkit for go.",
   "main": "index.js",
   "scripts": {
-    "test": "go test __tests__/*.go -v"
+    "test": "go test __tests__/*.go -v",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
