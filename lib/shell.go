@@ -2,10 +2,16 @@ package nx
 
 import (
 	"github.com/google/shlex"
+	"log"
 	"os/exec"
 )
 
-func RunShell(command string) (string, error) {
+type ShellOptions struct {
+	Verbose bool
+	DryRun  bool
+}
+
+func RunShell(command string, options *ShellOptions) (string, error) {
 	cmdArgs, err := shlex.Split(command)
 	if err != nil {
 		return "", err
@@ -13,6 +19,15 @@ func RunShell(command string) (string, error) {
 
 	cmdName := cmdArgs[0]
 	if !IsCommandExists(cmdName) {
+		return "", nil
+	}
+
+	if options.Verbose {
+		log.Println("Running command: ", command)
+	}
+
+	if options.DryRun {
+		log.Println("Dry run, not running command: ", command)
 		return "", nil
 	}
 
