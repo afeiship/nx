@@ -1,15 +1,17 @@
-/**
- * @Author: aric 1290657123@qq.com
- * @Date: 2024-10-15 21:09:48
- * @LastEditors: aric 1290657123@qq.com
- * @LastEditTime: 2024-10-15 21:11:13
- */
 package nx
 
-import "os/exec"
+import (
+	"github.com/google/shlex"
+	"os/exec"
+)
 
-func RunShell(cmd string) (string, error) {
-	out, err := exec.Command("bash", "-c", cmd).Output()
+func RunShell(command string) (string, error) {
+	cmdArgs, err := shlex.Split(command)
+	if err != nil {
+		return "", err
+	}
+	cmd := exec.Command(cmdArgs[0], cmdArgs[1:]...) // 第一个元素是命令，后面的元素是参数
+	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return "", err
 	}
