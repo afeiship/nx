@@ -12,6 +12,7 @@ type ShellOptions struct {
 }
 
 func RunShell(command string, options *ShellOptions) (string, error) {
+	log.SetPrefix("nx.shell: ")
 	cmdArgs, err := shlex.Split(command)
 	if err != nil {
 		return "", err
