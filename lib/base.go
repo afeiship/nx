@@ -3,7 +3,6 @@ package nx
 import (
 	"bytes"
 	"fmt"
-	"os"
 	"reflect"
 	"strconv"
 	"text/template"
@@ -11,10 +10,6 @@ import (
 
 func TypeOf(target any) reflect.Kind {
 	return reflect.TypeOf(target).Kind()
-}
-
-func Getenv(name string) string {
-	return os.Getenv(name)
 }
 
 func Get(target, key string) any {

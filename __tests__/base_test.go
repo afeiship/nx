@@ -59,15 +59,6 @@ func TestTypeOf(f *testing.T) {
 	}
 }
 
-func TestGetenv(t *testing.T) {
-	homedir := nx.Getenv("HOME")
-	gdir := nx.Getenv("GITHUB_HOME")
-
-	if gdir != homedir+"/github" {
-		t.Errorf("getenv error")
-	}
-}
-
 func TestToString(t *testing.T) {
 	v1 := 1
 	v2 := true
