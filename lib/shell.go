@@ -10,6 +10,8 @@ type ShellOptions struct {
 	Command string
 	Verbose bool
 	DryRun  bool
+  OnBeforeRun func(cmdArgs []string) error
+  OnAfterRun func(cmdArgs []string, output string, err error) error
 }
 
 func RunShell(options *ShellOptions) (string, error) {
@@ -42,11 +44,24 @@ func RunShell(options *ShellOptions) (string, error) {
 		return "", nil
 	}
 
+  if options.OnBeforeRun!= nil {
+    if err := options.OnBeforeRun(); err!= nil {
+      return "", err
+    }
+  }
+
 	cmd := exec.Command(cmdName, cmdArgs[1:]...) // 第一个元素是命令，后面的元素是参数
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return "", err
 	}
+
+  if options.OnAfterRun!= nil {
+    if err := options.OnAfterRun(cmdArgs, string(out), err); err!= nil {
+      return "", err
+    }
+  }
+
 	return string(out), nil
 }
 
