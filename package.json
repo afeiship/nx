@@ -1,6 +1,6 @@
 {
   "name": "nx",
-  "version": "1.0.5",
+  "version": "1.0.3",
   "description": "Next toolkit for go.",
   "main": "index.js",
   "scripts": {
