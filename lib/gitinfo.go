@@ -2,7 +2,7 @@
  * @Author: aric 1290657123@qq.com
  * @Date: 2024-10-15 21:05:50
  * @LastEditors: aric 1290657123@qq.com
- * @LastEditTime: 2024-10-15 21:58:34
+ * @LastEditTime: 2024-11-15 09:19:32
  */
 package nx
 
@@ -12,16 +12,16 @@ import (
 )
 
 type GitInfoRepo struct {
-	CurrentBranch string
-	Hash          string
-	ShortHash     string
-	Email         string
-	Name          string
-	Owner         string
-	Repo          string
-	SshUrl        string
-	HttpsUrl      string
-	LatestVersion string
+	CurrentBranch string `json:"current_branch"`
+	Hash          string `json:"hash"`
+	ShortHash     string `json:"short_hash"`
+	Email         string `json:"email"`
+	Name          string `json:"name"`
+	Owner         string `json:"owner"`
+	Repo          string `json:"repo"`
+	SshUrl        string `json:"ssh_url"`
+	HttpsUrl      string `json:"https_url"`
+	LatestVersion string `json:"latest_version"`
 }
 
 func GitInfo() GitInfoRepo {
@@ -45,8 +45,8 @@ func GitInfo() GitInfoRepo {
 		Name:          strings.TrimSpace(name),
 		Owner:         owner,
 		Repo:          repo,
-		SshUrl:        url,
-		HttpsUrl:      httpsUrl,
+		SshUrl:        strings.TrimSpace(url),
+		HttpsUrl:      strings.TrimSpace(httpsUrl),
 		LatestVersion: latestVersion,
 	}
 }
