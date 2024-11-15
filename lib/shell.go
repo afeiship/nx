@@ -45,7 +45,7 @@ func RunShell(options *ShellOptions) (string, error) {
 	}
 
   if options.OnBeforeRun!= nil {
-    if err := options.OnBeforeRun(); err!= nil {
+    if err := options.OnBeforeRun(cmdArgs); err!= nil {
       return "", err
     }
   }
