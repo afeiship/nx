@@ -2,7 +2,7 @@
  * @Author: aric 1290657123@qq.com
  * @Date: 2024-10-15 21:06:33
  * @LastEditors: aric 1290657123@qq.com
- * @LastEditTime: 2024-11-15 09:21:06
+ * @LastEditTime: 2024-12-30 13:50:53
  */
 
 // go test -v __tests__/gitinfo_test.go -run TestGitInfo
@@ -22,6 +22,7 @@ func TestGitInfo(f *testing.T) {
 	fmt.Println(string(jsonString))
 	fmt.Println(info.CurrentBranch)
 	fmt.Println(info.LatestVersion)
+	fmt.Println(info.HttpsUrl)
 
 	if info.SshUrl != "git@github.com:afeiship/nx.git" {
 		f.Error("TestGitInfo failed")

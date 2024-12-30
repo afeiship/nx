@@ -2,11 +2,12 @@
  * @Author: aric 1290657123@qq.com
  * @Date: 2024-10-15 21:05:50
  * @LastEditors: aric 1290657123@qq.com
- * @LastEditTime: 2024-12-30 13:47:51
+ * @LastEditTime: 2024-12-30 13:52:27
  */
 package nx
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -33,7 +34,7 @@ func GitInfo() GitInfoRepo {
 	url, _ := RunShell(&ShellOptions{Command: "git config --get remote.origin.url"})
 	owner, repo := parseGitUrl(url)
 	httpsUrl := strings.Replace(url, "git@", "https://", 1)
-	httpsUrl = strings.Replace(strings.Replace(httpsUrl, ".git", "", 1), ":", "/", 1)
+	httpsUrl = fmt.Sprintf("https://%s/%s/%s", "github.com", owner, repo)
 	latestTag, _ := RunShell(&ShellOptions{Command: "git describe --tags --abbrev=0"})
 	latestVersion := strings.TrimSpace(latestTag)
 
